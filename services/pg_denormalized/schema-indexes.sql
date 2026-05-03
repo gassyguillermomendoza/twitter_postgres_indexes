@@ -1,4 +1,4 @@
-CREATE INDEX tweets_jsonb_hashtags_idx
+CREATE INDEX
 ON tweets_jsonb
 USING GIN ((data #> '{entities,hashtags}') jsonb_path_ops);
 
@@ -22,5 +22,5 @@ USING GIN (
     )
 );
 
-CREATE INDEX tweets_jsonb_lang_idx
+CREATE INDEX
 ON tweets_jsonb ((data->>'lang'));
